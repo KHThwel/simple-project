@@ -2,9 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="student" class="org.example.bean.Student">
+    <bean id="student" class="org.example.bean.Student" autowire="byType">
         <property name="name" value="Kyawt Hsu Thwel"/>
-        <property name="address" ref="address"/>
+<!--        <constructor-arg name="address" ref="address"/>-->
+<!--        <property name="address" ref="address"/>-->
     </bean>
     <bean id="address" class="org.example.bean.Address">
         <property name="city" value="KyonPyaw City"/>

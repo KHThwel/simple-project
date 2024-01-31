@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.bean.Address;
 import org.example.bean.Student;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -13,11 +14,12 @@ public class Main {
 //        Address address =new Address();
 //        address.setCity("Dream Land");
 //        student.setAddress(address);
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-       context.registerShutdownHook();
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+      // context.registerShutdownHook();
        Student student = context.getBean(Student.class);
 
         student.printInfo();
+        ((ClassPathXmlApplicationContext)context).close();
 
     }
 }
